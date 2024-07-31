@@ -4,7 +4,6 @@ const DEFAULT_SIZE = 16
 const currSize = 16
 const grid = document.getElementById("grid");
 
-console.log("start of java script");
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true);
@@ -14,15 +13,15 @@ const clearBtn = document.getElementById('clearBtn')
 clearBtn.onclick = () => reloadGrid();
 
 function reloadGrid() {
+    console.log("clear button pressed!")
     //clearGrid()
-    initializeGridGrid(currSize);
+    //initializeGrid(currSize);
 }
 
 
 function initializeGrid(size){
     for(i=0;i<size;i++){
         for(j=0;j<size;j++){
-            console.log("in loop");
             const gridElement = document.createElement("div");
             gridElement.classList.add("grid-element");
             gridElement.addEventListener("mouseover",changeColor);
@@ -33,6 +32,7 @@ function initializeGrid(size){
 }
 
 function changeColor(e){
+    console.log("clicked");
     if(e.type=="mouseover"&& !mouseDown){
         return;
     }
