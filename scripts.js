@@ -14,12 +14,17 @@ clearBtn.onclick = () => reloadGrid();
 
 function reloadGrid() {
     console.log("clear button pressed!")
-    //clearGrid()
-    //initializeGrid(currSize);
+    while(grid.firstChild){
+        grid.removeChild(grid.firstChild);
+    }
+    initializeGrid(currSize);
 }
 
 
 function initializeGrid(size){
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
     for(i=0;i<size;i++){
         for(j=0;j<size;j++){
             const gridElement = document.createElement("div");
